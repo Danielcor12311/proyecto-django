@@ -1,0 +1,61 @@
+{% extends "inicio/encabezado.html" %}
+{%block titulo%} contacto {%endblock%}
+{% block imagen%}
+	{%load static%}
+	{%static 'inicio/images/contacto.png'%}
+{%endblock%}
+{% block descripcion_modulo %}
+    Contacto <span>Contactanos</span>
+{% endblock %}
+{% block separacion%}
+
+
+		<!-- Contenido Principal-->
+	 	<div class="page-content">
+
+
+			<!--Encabezdo -->
+			<div class="page-header">
+				<div class="page-title">
+					<h3>Contactanos
+				    <small>Modificando comentario</small></h3>
+				</div>
+
+				
+				
+			</div>
+			</div>
+			<!-- /Encabezado-->
+{% endblock %}
+{%block contenido%}
+			<!-- Formulario -->
+			<form class="form-horizontal" action="{% url 'Editar' comentario.id%}" method="post" role="form">
+				{% csrf_token %}
+	            <div class="panel panel-default">
+	                <div class="panel-body">
+				        <div class="form-group">
+				            <label class="col-sm-2 control-label text-right">Nombre:</label>
+				            <div class="col-sm-10">
+				            	<input value={{comentario.usuario}} name="usuario" type="text" class="form-control">
+				            </div>
+				        </div>
+                            <div class="form-group">
+				            <label class="col-sm-2 control-label text-right">mensaje:</label>
+				            <div class="col-sm-10">
+					<textarea name="mensaje" cols="120" rows="15">{{comentario.mensaje}}</textarea>
+				            </div>
+				        </div>
+				        
+                        <div class="form-actions text-right">
+                        	<input type="submit" value="Enviar" class="btn btn-primary">
+                        </div>
+
+				    </div>
+				</div>
+			</form>
+		<!-- Fin del Formulario -->
+		</div>
+		<!-- /Contenido Principal-->
+</div>
+    
+{%endblock%}

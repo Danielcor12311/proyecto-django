@@ -23,10 +23,21 @@ from registros import views as views_registros
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views_registros.registros, name="Principal"),
-    path('contacto/',views.contacto, name="Contacto"),
+    path('contacto/', views_registros.contacto, name="Contacto"),
     path('formulario/', views.formulario, name="Formulario"),
     path('ejemplo/', views.ejemplo, name="Ejemplo"),
-]
+    path('registrar/', views_registros.registrar,name="Registrar"),
+    path('comentarios/', views_registros.comentarios,name="Comentarios"),
+    path('consultas', views_registros.consultar8, name="Consultas"),
+    path('eliminarComentario/<int:id>', views_registros.eliminarComentarioContacto, name='Eliminar'),
+    path('subir', views_registros.archivos, name="Subir"),
+    path('consultasSQL', views_registros.consultasSQL, name="sql"),
+    path('seguridad', views.seguridad, name="Seguridad"),
+    path('seguridad',views_registros.seguridad,name="Seguridad"),
+    path('form-editar-comentario/<int:id>/', views_registros.consultarComentarioIndividual, name='ConsultaIndividual'),
+    path('editar-comentario/<int:id>/', views_registros.editarComentarioContacto, name='Editar'),
+
+]   
 
 if settings.DEBUG:
         from django.conf.urls.static import static 
