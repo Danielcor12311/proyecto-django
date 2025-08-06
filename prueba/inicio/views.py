@@ -13,3 +13,6 @@ def formulario(request):
 
 def ejemplo(request):
     return render(request,"inicio/ejemplo.html")
+
+def seguridad(request):
+    return render(request, "inicio/seguridad.html")
